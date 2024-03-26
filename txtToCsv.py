@@ -28,18 +28,15 @@ with open(input_file, 'r', encoding='utf-8') as txt_file, open(output_file, 'w',
 
     for line in reader:
         full_name = line.strip()
-        english_name = convert_to_english(full_name)
 
-        en_name, en_last_name, en_second_name = english_name.split(maxsplit=2)
+        en_last_name, en_name, en_second_name = convert_to_english(full_name).split(maxsplit=2)
 
         username = en_name[0].lower() + en_last_name.lower() + "2024"
-        name, last_name, second_name = full_name.split(maxsplit=2)
-        password = random.randint(1000, 9999)
-        email = username + "@fiztest.gsu.by"
-        city = "Гомель"
+        last_name, name, second_name = full_name.split(maxsplit=2)
 
         writer.writerow(
-            [username, password, name, last_name, email, city, 0, "ОБиП_ПМС", "МС-32 (2023-2024)"]
+            [username, random.randint(1000, 9999), name + " " + second_name, last_name,
+             username + "@fiztest.gsu.by", "Гомель", 0, "ОБиП_ПМС", "МС-32 (2023-2024)"]
         )
 
 print('Конвертация завершена. Результат записан в файл', output_file)

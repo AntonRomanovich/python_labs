@@ -1,5 +1,4 @@
-input_number = int(input('Введите число '))
-print('Ваша пирамида:')
+input_number = int(input())
 
 for i in range(input_number):
-    print(str(i+1) * (i+1))
+    print((10**(i+1)) // 9 * (i+1))
